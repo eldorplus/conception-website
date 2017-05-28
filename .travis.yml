@@ -40,7 +40,7 @@ after_success:
 #  - sh build/cli/deploy-ci.sh
   - yarn run build
   - cd dist
-  - echo "conception.eldorplus.fr" > CNAME
+  - echo "conception-web.io" > CNAME
   - cp index.html 404.html
   - git add --all .
   - git commit --message "Automatically update from travis-ci"
@@ -52,4 +52,4 @@ env:
   global:
     - GH_REF: github.com/eldorplus/conception-website.git
     # - GH_TOKEN: 'Your GitHub Personal access tokens, via https://github.com/settings/tokens'
-    #
+    #Numéro de commande: 6869806464
