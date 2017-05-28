@@ -1,0 +1,587 @@
+// Press the background color
+  // -----------------------------------------------------------------------------
+@mixin tap-color($color, $opacity: .9) {
+  background-color: $color;
+  &:active {
+    background-color: $color * $opacity;
+  }
+}
+
+// Mask layer
+// -----------------------------------------------------------------------------
+@mixin mask($bgcolor: rgba(0, 0, 0, .4), $z-index: $base-zindex * 1500) {
+  background-color: $bgcolor;
+  position: fixed;
+  z-index: $z-index;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  top: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+// Multi-line text overflow displays ellipses
+// -----------------------------------------------------------------------------
+@mixin line-clamp($line: 2, $line-height: .38rem) {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: $line;
+  -webkit-box-orient: vertical;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  line-height: $line-height;
+  max-height: $line-height * $line + .2rem;
+}
+
+// Single line text overflow display ellipsis
+// -----------------------------------------------------------------------------
+@mixin text-overflow($align: justify) {
+  word-wrap: normal;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  text-align: $align;
+}
+
+// Triangle arrows
+// -----------------------------------------------------------------------------
+// $deg:  45deg - right
+//       135deg - down
+//       -45deg - up
+//      -135deg - left
+// ------------------------------------------------------------------------
+@mixin arrow($color: #DDD, $width: .2rem, $border-width: 2px, $deg: 45deg) {
+  content: '';
+  display: inline-block;
+  width: $width;
+  height: $width;
+  border-style: solid;
+  border-color: $color;
+  border-width: $border-width $border-width 0 0;
+  -webkit-transform: rotate($deg);
+  transform: rotate($deg);
+}
+
+// A pixel border
+// -----------------------------------------------------------------------------
+@mixin top-line($color, $zindex: 0) {
+  content: '';
+  position: absolute;
+  z-index: $zindex;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  border-top: 1px solid $color;
+  -webkit-transform: scaleY(.5);
+  transform: scaleY(.5);
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+}
+
+@mixin bottom-line($color, $zindex: 0) {
+  content: '';
+  position: absolute;
+  z-index: $zindex;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  border-bottom: 1px solid $color;
+  -webkit-transform: scaleY(.5);
+  transform: scaleY(.5);
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+}
+
+@mixin left-line($color, $zindex: 0) {
+  content: '';
+  position: absolute;
+  z-index: $zindex;
+  top: 0;
+  left: 0;
+  height: 100%;
+  border-left: 1px solid $color;
+  -webkit-transform: scaleX(.5);
+  transform: scaleX(.5);
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+}
+
+@mixin right-line($color, $zindex: 0) {
+  content: '';
+  position: absolute;
+  z-index: $zindex;
+  top: 0;
+  right: 0;
+  height: 100%;
+  border-right: 1px solid $color;
+  -webkit-transform: scaleX(.5);
+  transform: scaleX(.5);
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+}
+
+@charset "utf-8";
+
+// Responsiveness
+
+// Classes to be applied for high ppi displays
+// (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)
+// -------------------------
+@mixin retina(){
+  @media (min--moz-device-pixel-ratio: 1.3),
+  (-o-min-device-pixel-ratio: 2.6/2),
+  (-webkit-min-device-pixel-ratio: 1.3),
+  (min-device-pixel-ratio: 1.3),
+  (min-resolution: 1.3dppx) {
+    @content;
+  }
+}
+@mixin high-dpi() {
+  @media only screen and (-webkit-min-device-pixel-ratio: 1.3),
+  only screen and (-o-min-device-pixel-ratio: 13/10),
+  only screen and (min-resolution: 120dpi) {
+    @content;
+  }
+}
+// Common thumbnail properties
+// -------------------------
+@mixin thumb($parent, $size){
+  #{$parent} {
+    width: $size;
+
+    > .glyphicon,
+    > .fa{
+      line-height: $size;
+    }
+  }
+}
+
+// Generates single property classes
+// -------------------------
+@mixin property-variants($base, $property, $variants: ()){
+  @each $size, $value in $variants {
+    @if $size == 'md'{
+      #{$base} {
+        #{$property}: $value;
+      }
+      #{$base}-n {
+        #{$property}: $value;
+      }
+    }
+    #{$base}-#{$size} {
+      #{$property}: $value;
+    }
+    #{$base}-n-#{$size} {
+      #{$property}: -$value;
+    }
+  }
+}
+
+@mixin keyframes($name){
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+
+  @keyframes #{$name} {
+    @content;
+  }
+}
+/**
+@keyframes spinAround
+  from
+    transform: rotate(0deg)
+  to
+    transform: rotate(359deg)
+
+@mixin loader {
+  animation: spinAround 500ms infinite linear
+  border: 2px solid $border
+  border-radius: 290486px
+  border-right-color: transparent
+  border-top-color: transparent
+  content: ""
+  display: block
+  height: 1rem
+  position: relative
+  width: 1rem
+}
+*/
+@mixin center($size) {
+  left: 50%;
+  margin-left: -($size / 2);
+  margin-top: -($size / 2);
+  position: absolute;
+  top: 50%;
+}
+@mixin from($device) {
+  @media screen and (min-width: $device) {
+    @content;
+  }
+}
+@mixin until($device) {
+  @media screen and (max-width: $device - 1px) {
+    @content;
+  }
+}
+
+@mixin font-size($size) {
+
+  @if is-percentage($size) {
+    $number: unit($size);
+    $value: $font-size-base * ($number / 100);
+    font-size: unit(ceil( $font-size-base + $value ), px);
+
+  } @else if is-absolute-length($size) {
+    font-size: ceil( $font-size-base + $size );
+  }
+}
+@mixin font-size-small($size) {
+
+  @if is-percentage($size) {
+    $number: unit($size);
+    $value: $font-size-small * ($number / 100);
+    font-size: unit(ceil( $font-size-small + $value ), px);
+
+  } @else if is-absolute-length($size) {
+    font-size: ceil( $font-size-small + $size );
+  }
+}
+@mixin font-size-large($size) {
+
+  @if is-percentage($size) {
+    $number: unit($size);
+    $value: $font-size-large * ($number / 100);
+    font-size: unit(ceil( $font-size-large + $value ), px);
+
+  } @else if is-absolute-length($size) {
+    font-size: ceil( $font-size-large + $size );
+  }
+}
+
+@mixin phone {
+  @media screen and (max-width: $screen-xs-max) {
+    @content;
+  }
+}
+@mixin small-phone {
+  @media screen and (max-width: $screen-xs) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media screen and (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+    @content;
+  }
+}
+@mixin tablet-only {
+  @media screen and (min-width: $screen-sm) and (max-width: $screen-lg - 1px) {
+    @content;
+  }
+}
+@mixin touch {
+  @media screen and (max-width: $screen-lg - 1px) {
+    @content;
+  }
+}
+@mixin desktop {
+  @media screen and (min-width: $screen-lg) {
+    @content;
+  }
+}
+@mixin desktop-only {
+  @media screen and (min-width: $screen-lg) and (max-width: $widescreen - 1px) {
+    @content;
+  }
+}
+@mixin laptop {
+  @media screen and (min-width: $screen-md) and (max-width: $screen-md-max) {
+    @content;
+  }
+}
+@mixin widescreen {
+  @media screen and (min-width: $widescreen) {
+    @content;
+  }
+}
+//IE 10+ Media Query
+@mixin ie10 {
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    @content;
+  }
+}
+//IE9 & IE10 Media Query
+@mixin ie910 {
+  @media screen and (min-width:0\0) {
+    @content;
+  }
+}
+//IE8 Media Query
+@mixin ie8 {
+  @media \0screen {
+    @content;
+  }
+}
+//Google Chrome Query
+@mixin webkit {
+  @media screen and (-webkit-min-device-pixel-ratio:0) {
+    @content;
+  }
+}
+//Non responsive devices
+@mixin non-responsive {
+  @media (min-width: $screen-sm) {
+    @content;
+  }
+}
+
+@mixin clearfix {
+  &:before,
+  &:after {
+    content: " "; // 1
+    display: table; // 2
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+@mixin transition ($transition...) {
+  transition			: $transition;
+  -moz-transition		: $transition;
+  -webkit-transition	: $transition;
+  -o-transition		    : $transition;
+}
+@mixin transform ($transform...) {
+  transform			: $transform;
+  -moz-transform	: $transform;
+  -ms-transform		: $transform;
+  -o-transform		: $transform;
+  -webkit-transform	: $transform;
+}
+@mixin animation ($animation...) {
+  animation             : $animation;
+  -webkit-animation     : $animation;
+  -o-animation          : $animation;
+  -moz-animation		: $animation;
+  -ms-animation		    : $animation;
+
+
+}
+
+@mixin scale ($multiplier) {
+  @include transform(scale($multiplier));
+}
+@mixin rotate ($deg) {
+  @include transform(rotate($deg));
+}
+@mixin skew ($deg, $deg2) {
+  @include transform(skew($deg, $deg2));
+}
+
+@mixin box-shadow($shadow...) {
+  -webkit-box-shadow  : $shadow; // iOS <4.3 & Android <4.1
+  -moz-box-shadow     : $shadow;
+  box-shadow          : $shadow;
+}
+@mixin box-shadow-inset ($shadow...) {
+  box-shadow			: inset $shadow;
+  -moz-box-shadow		: inset $shadow;
+  -webkit-box-shadow	: inset $shadow;
+}
+
+@mixin gradient-vertical ($firstColor: #FFF, $secondColor: #DDD) {
+  background	: $firstColor; /* Fallback solid color for old browsers */
+  background	: linear-gradient(to bottom, $firstColor 0%, $secondColor 100%); /* W3C */
+  background	: -moz-linear-gradient(top, $firstColor 0%, $secondColor 100%); /* FF 3.6+ */
+  background	: -ms-linear-gradient(top, $firstColor 0%, $secondColor 100%); /* IE 10+ */
+  background	: -o-linear-gradient(top, $firstColor 0%, $secondColor 100%); /* Opera 11.10+ */
+  background	: -webkit-linear-gradient(top, $firstColor 0%,$secondColor 100%); /* Chrome 10+, Safari 5.1+ */
+  background	: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$firstColor), color-stop(100%,$secondColor)); /* Chrome, Safari 4+ */
+  filter		: progid:DXImageTransform.Microsoft.gradient(startColorstr= '#{$firstColor}', endColorstr= '#{$secondColor}', GradientType=0); /* IE 6-9 */
+}
+@mixin gradient-horizontal ($firstColor: #FFF, $secondColor: #DDD) {
+  background	: $firstColor; /* Fallback solid color for old browsers */
+  background	: linear-gradient(to right, $firstColor 0%, $secondColor 100%); /* W3C */
+  background	: -moz-linear-gradient(left,  $firstColor 0%, $secondColor 100%); /* FF 3.6+ */
+  background	: -ms-linear-gradient(left, $firstColor 0%, $secondColor 100%); /* IE 10+ */
+  background	: -o-linear-gradient(left, $firstColor 0%, $secondColor 100%); /* Opera 11.10+ */
+  background	: -webkit-linear-gradient(left,  $firstColor 0%,$secondColor 100%); /* Chrome 10+, Safari 5.1+ */
+  background	: -webkit-gradient(linear, left top, right top, color-stop(0%,$firstColor), color-stop(100%,$secondColor)); /* Chrome, Safari 4+ */
+  filter		: progid:DXImageTransform.Microsoft.gradient(startColorstr= '#{$firstColor}', endColorstr= '#{$secondColor}', GradientType=1); /* IE 6-9 */
+}
+@mixin border-radius ($radius: 4px) {
+  border-radius			: $radius;
+  -moz-border-radius	: $radius;
+  -webkit-border-radius	: $radius;
+}
+
+/**
+* Right sidebar animation
+* Without Hardware Acceleration
+**/
+@mixin right-sidebar-animation($has_animation: false) {
+  @if ($has_animation == false) {
+    .be-right-sidebar{ right: 0; }
+
+  } @else if($has_animation == true) {
+    @include phone {
+      .be-wrapper{ overflow: hidden; }
+      .be-right-sidebar{ @include transform(translate3d(0, 0, 0)); }
+    }
+  }
+}
+/**
+* Left sidebar animation
+* Without Hardware Acceleration
+**/
+@mixin left-sidebar-animation($has_animation: false){
+  @if($has_animation == false) {
+    .be-left-sidebar{ left: 0; }
+  } @else if($has_animation == true) {
+    @include phone{
+      .be-wrapper{ overflow: hidden; }
+      .be-left-sidebar{ @include transform(translate3d(0, 0, 0)); }
+    }
+  }
+}
+
+@mixin opacity($opacity: 0.5) {
+  // IE8 filter
+  $opacity-ie           : ($opacity * 100);
+  opacity               : $opacity;
+  -moz-opacity		    : $opacity;
+  -webkit-opacity		: $opacity;
+  -ms-filter			: progid:DXImageTransform.Microsoft.Alpha(opacity=#{$opacity-ie}); /* IE 8 */
+  filter: alpha(opacity=$opacity-ie); /* IE 5-7 */
+}
+
+/**
+* Forms
+*/
+@mixin switch-button-size($size-base){
+  height: $size-base;
+  width: $size-base + 33px;
+  line-height: $size-base - 4px;
+  label{
+    height: $size-base - 8px;
+    width: $size-base - 8px;
+    &:before{
+      line-height: $size-base + 1px;
+    }
+  }
+}
+@mixin switch-button-color($active-color, $off-color: darken($color-white, 30%)){
+  background-color: $off-color;
+  label{
+    border-color: darken($off-color, 3%);
+  }
+
+  input[type="checkbox"]:checked + span{
+    background-color: $active-color;
+    label{
+      border-color: darken($active-color, 5%);
+    }
+  }
+}
+
+@mixin triangle-base() {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  -moz-transform: scale(.9999);
+}
+@mixin triangle-size($direction, $size, $color) {
+  @include triangle($direction, $size * 2, $size, $color);
+}
+
+@mixin triangle($direction, $width, $height, $color) {
+  @if ($direction = up) {
+    @include triangle-base();
+    border-left: ($width / 2) solid transparent;
+    border-right: ($width / 2) solid transparent;
+    border-bottom: $height solid $color;
+  }
+  @else if ($direction = down) {
+    @include triangle-base();
+    border-left: ($width / 2) solid transparent;
+    border-right: ($width / 2) solid transparent;
+    border-top: $height solid $color;
+  }
+  @else if ($direction = left) {
+    @include triangle-base();
+    border-top: ($width / 2) solid transparent;
+    border-bottom: ($width / 2) solid transparent;
+    border-right: $height solid $color;
+  }
+  @else if ($direction = right) {
+    @include triangle-base();
+    border-top: ($width / 2) solid transparent;
+    border-bottom: ($width / 2) solid transparent;
+    border-left: $height solid $color;
+  }
+}
+
+/**
+* Social Color Mixin
+**/
+@mixin social-notification($background){
+  background: $background;
+
+  .notification-item {
+    .notification-img-container {
+      background-color: darken($background, 3%);
+    }
+  }
+}
+
+/**
+* Social Color Mixin
+**/
+@mixin social-gritter($background){
+  background: $background;
+  .gritter-item {
+    .gritter-img-container {
+      background-color: darken($background, 3%);
+    }
+  }
+}
+
+
+@mixin text-dropdown {
+  @include font-size(13);
+  color: $color-dropdown;
+  letter-spacing: 0.4px;
+}
+
+@mixin text-descrete {
+  @include font-size(13);
+  color: $color-descrete;
+  letter-spacing: 0.4px;
+}
+
+@mixin no-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  -ms-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}

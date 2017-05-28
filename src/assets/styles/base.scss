@@ -1,0 +1,128 @@
+@charset "utf-8";
+
+@import "./common/variables";
+@import "./common/reset";
+@import "./common/iconfont";
+
+.g-fix-ios-overflow-scrolling-bug {
+  -webkit-overflow-scrolling: auto !important;
+}
+
+.app {
+  height: 100%;
+  min-height: 100%;
+
+  & .app-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    //padding: 100px 30px 15px;
+    width: 100%;
+  }
+
+  @media screen and (max-width: 1059px) {
+    & .app-body {
+      padding-top: 60px
+    }
+
+  }
+
+  @media screen and (max-width: 999px) {
+    & .app-body {
+      padding-top: 50px;
+      padding-bottom: 15px;
+    }
+
+    &.app-home-view .app-body {
+      padding-top: 20px;
+      padding-bottom: 0;
+    }
+  }
+}
+
+.hljs {
+  line-height: 1.8;
+  font-family: Menlo, Monaco, Consolas, Courier, monospace;
+  font-size: 12px;
+  padding: 18px 24px;
+  background-color: #f9fafc;
+  border: solid 1px #eaeefb;
+  margin-bottom: 25px;
+  border-radius: 4px;
+  -webkit-font-smoothing: auto;
+}
+
+.app-body {
+  margin-top: -80px;
+  padding: 80px 0 120px;
+  box-sizing: border-box;
+  min-height: 100%;
+}
+
+.container,
+.page-container {
+  width: 1140px;
+  padding: 0 30px;
+  margin: 0 auto;
+}
+.page-container {
+  padding-top: 55px;
+  h2 {
+    font-size: 28px;
+    color: #1f2d3d;
+    margin: 0;
+  }
+  h3 {
+    font-size: 22px;
+  }
+
+  h2, h3, h4, h5 {
+    font-weight: normal;
+    color: #1f2f3d;
+    &:hover a {
+      opacity: .4;
+    }
+    a {
+      float: left;
+      margin-left: -20px;
+      opacity: 0;
+      cursor: pointer;
+      &:hover {
+        opacity: .4;
+      }
+    }
+  }
+
+  p {
+    font-size: 14px;
+    color: #5e6d82;
+    line-height: 1.5em;
+  }
+  .tip {
+    padding: 8px 16px;
+    background-color: #ECF8FF;
+    border-radius: 4px;
+    border-left: #50bfff 5px solid;
+    code {
+      background-color: rgba(#fff, .7);
+      color: #445368;
+    }
+  }
+}
+
+.demo {
+  margin: 20px 0;
+}
+
+@media (max-width: 1140px) {
+  .container,
+  .page-container {
+    width: 100%;
+  }
+}
+@media (max-width: 768px) {
+  .container,
+  .page-container {
+    padding: 0 20px;
+  }
+}

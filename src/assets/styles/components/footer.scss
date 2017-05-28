@@ -1,0 +1,145 @@
+@charset "utf-8";
+
+/**
+footer {
+  border-top: 1px solid #ddd;
+  color: #7f8c8d;
+  font-size: 15px;
+  font-weight: 600;
+  width: 100%;
+  padding: 0;
+  text-align: center;
+  position: relative;
+
+  span {
+    color: #f66
+  }
+  a:hover {
+    text-decoration: none
+  }
+
+  .lang {
+    position: absolute;
+    right: 10px;
+    top: 20px;
+  }
+  @media screen and (max-width: 999px) {
+    padding: 10px 20px;
+    width: 100%;
+
+    div {
+      float: left
+    }
+
+    .lang {
+      position: static;
+      float: right;
+    }
+  }
+}
+
+
+.bg-dark {
+  background: #111;
+}
+
+.footer {
+  padding: 10px 0;
+
+  .copyright {
+    margin: 0;
+  }
+
+  .footer-social-links {
+    text-align: right;
+
+    a {
+      display: inline-block;
+      padding: 0 6px;
+    }
+  }
+
+  @media screen and (max-width: 999px) {
+    text-align: center;
+  }
+}
+**/
+
+.footer {
+  height: 120px;
+  background-color: #324057;
+  color: #a4aebd;
+  width: 100%;
+  z-index: 1000;
+  margin-top: -120px;
+
+  * {
+    word-spacing: 0;
+  }
+
+  .container {
+    height: 100%;
+    box-sizing: border-box;
+  }
+  .footer-main {
+    font-size: 0;
+    padding-top: 40px;
+    display: inline-block;
+
+    .footer-main-title {
+      line-height: 1;
+      font-size: 22px;
+      margin: 0;
+    }
+    .footer-main-link {
+      display: inline-block;
+      margin: 12px 18px 0 0;
+      line-height: 1;
+      font-size: 12px;
+      color: #768193;
+      a {
+        color: #768193;
+        text-decoration: none;
+      }
+    }
+  }
+  .footer-social {
+    float: right;
+    line-height: 120px;
+
+    .element {
+      transition: .3s;
+      display: inline-block;
+      line-height: 32px;
+      text-align: center;
+      color: #8D99AB;
+      background-color: transparent;
+      size: 32px;
+      font-size: 32px;
+      vertical-align: middle;
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+    .icon-weixin {
+      margin-right: 36px;
+      &:hover {
+        color: #fff;
+      }
+    }
+    .icon-github {
+      margin-right: 0;
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    .footer-social {
+      display: none;
+    }
+  }
+}

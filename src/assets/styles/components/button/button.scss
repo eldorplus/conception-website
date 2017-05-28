@@ -1,0 +1,60 @@
+@charset "utf-8";
+
+@import "../../common/variables";
+@import "../../common/mixins";
+@import "mixins";
+
+.m-button {
+  padding: 0 $body-padding-vertical;
+}
+
+.btn {
+  display: inline-block;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  background: $btn-default-fill;
+  position: relative;
+  border: $border-base;
+  color: $btn-default-color;
+  pointer-events: auto;
+  -webkit-appearance: none;
+  text-align: center;
+
+  height: $btn-height;
+  margin: 0;
+  box-sizing: border-box;
+
+  outline: none;
+  overflow: hidden;
+
+  @include no-select;
+
+  @include btn-size($btn-padding-vertical, $btn-padding-horizontal, $btn-font-size, $btn-border-radius);
+
+  &:hover,
+  &:focus {
+    color: $color-primary;
+    border-color: $border-color-hover;
+  }
+
+  &:active {
+    color: shade($color-primary, $btn-active-shade-percent);
+    border-color: $border-color-base;
+    outline: none;
+  }
+
+  &::-moz-focus-inner {
+    border: 0;
+  }
+
+  & [class*="btn-icon-"] {
+    & + span {
+      margin-left: 5px;
+    }
+  }
+
+  & + [class*="btn-"] {
+    margin-left: 10px;
+  }
+}

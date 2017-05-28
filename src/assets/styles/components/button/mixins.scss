@@ -1,0 +1,91 @@
+@charset "utf-8";
+
+// Button sizes
+@mixin btn-size($padding-vertical, $padding-horizontal, $font-size, $border-radius) {
+  padding: $padding-vertical $padding-horizontal;
+  font-size: $font-size;
+  border-radius: $border-radius;
+}
+
+@mixin btn-variant($color, $background, $border) {
+  color: $color;
+  background-color: $background;
+  border-color: $background;
+
+  /**
+  &:focus,
+  &.focus {
+    color: $color;
+    background-color: $background;
+    border-color: $background;
+    outline: none;
+  }
+
+  &:hover, &.hover{
+    box-shadow: inset 0 -1px 0 darken($background, 10%);
+    background-color: lighten($background, 2%);
+    border-color: lighten($background, 2%);
+    border-bottom-color: darken($background, 10%);
+  }
+  **/
+
+  &:hover,
+  &:focus {
+    color: $color;
+    background-color: $background;
+    border-color: $border;
+    outline: none;
+  }
+
+  &:active {
+    background: shade($background, $btn-active-shade-percent);
+    border-color: shade($border, $btn-active-shade-percent);
+    color: $color;
+    outline: none;
+  }
+
+  &.is-active {
+    background: shade($background, $btn-active-shade-percent);
+    border-color: shade($border, $btn-active-shade-percent);
+    color: $color;
+  }
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &,
+    &:hover,
+    &:focus,
+    &.focus,
+    &:active,
+    &.active {
+      background-color: $background;
+      border-color: $border;
+    }
+  }
+
+  &.is-plain {
+    background: $btn-default-fill;
+    border: $border-base;
+    color: $btn-default-color;
+
+    &:hover,
+    &:focus {
+      background: $color-white;
+      border-color: $border;
+      color: $background;
+    }
+
+    &:active {
+      background: $color-white;
+      border-color: shade($border, $btn-active-shade-percent);
+      color: shade($background, $btn-active-shade-percent);
+      outline: none;
+    }
+  }
+
+  .badge {
+    color: $background;
+    background-color: $color;
+  }
+}
