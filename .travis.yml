@@ -52,5 +52,5 @@ after_success:
 env:
   global:
     - GH_REF: github.com/eldorplus/conception-website.git
-    # - GH_TOKEN: 'Your GitHub Personal access tokens, via https://github.com/settings/tokens'
+    - GH_TOKEN: ccd60bfaad7a2bb12b300cb32d2dc8626694d519 #'Your GitHub Personal access tokens, via https://github.com/settings/tokens'
     #Numéro de commande: 6869806464
