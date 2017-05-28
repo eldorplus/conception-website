@@ -19,6 +19,11 @@ addons:
     packages:
       - xvfb
 
+before_install:
+  - export TRAVIS_COMMIT_MSG="[deploy] $(git log --format='%h - %B' --no-merges -n 1)"
+  - export TRAVIS_COMMIT_USER="$(git log --no-merges -n 1 --format=%an)"
+  - export TRAVIS_COMMIT_EMAIL="$(git log --no-merges -n 1 --format=%ae)"
+
 install:
   - export DISPLAY=':99.0'
   - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
@@ -32,10 +37,6 @@ before_script:
 script:
   - yarn test
 
-#before_install:
-#  - export TRAVIS_COMMIT_MSG="[deploy] $(git log --format='%h - %B' --no-merges -n 1)"
-#  - export TRAVIS_COMMIT_USER="$(git log --no-merges -n 1 --format=%an)"
-#  - export TRAVIS_COMMIT_EMAIL="$(git log --no-merges -n 1 --format=%ae)"
 after_success:
 #  - sh build/cli/deploy-ci.sh
   - yarn run build
