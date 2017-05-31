@@ -57,4 +57,117 @@
   & + [class*="btn-"] {
     margin-left: 10px;
   }
+
+  &.is-plain {
+    &:hover,
+    &:focus {
+      background: $color-white;
+      border-color: $color-primary;
+      color: $color-primary;
+    }
+
+    &:active {
+      background: $color-white;
+      border-color: shade($color-primary, $btn-active-shade-percent);
+      color: shade($color-primary, $btn-active-shade-percent);
+      outline: none;
+    }
+  }
+
+  &.is-active {
+    color: shade($color-primary, $btn-active-shade-percent);
+    //border-color: $color;
+  }
+
+  &.is-disabled {
+    &,
+    &:hover,
+    &:focus {
+      color: $btn-disabled-color;
+      cursor: not-allowed;
+      background-image: none;
+      background-color: $btn-disabled-fill;
+      border-color: $btn-disabled-border;
+    }
+
+    &.btn-text {
+      background-color: transparent;
+    }
+
+    &.is-plain {
+      &,
+      &:hover,
+      &:focus {
+        background-color: var(--color-white);
+        border-color: var(--color-base-gray);
+        color: var(--color-extra-light-silver);
+      }
+    }
+  }
+
+  &.is-loading {
+    position: relative;
+    pointer-events: none;
+
+    &:before {
+      pointer-events: none;
+      content: '';
+      position: absolute;
+      left: -1px;
+      top: -1px;
+      right: -1px;
+      bottom: -1px;
+      border-radius: inherit;
+      background-color: rgba(255,255,255,.35);
+    }
+  }
+}
+
+.btn-text,
+.btn-link {
+  border: none;
+  color: $color-primary;
+  background: transparent;
+  padding-left: 0;
+  padding-right: 0;
+
+  &:hover,
+  &:focus {
+    color: tint($color-primary, $btn-hover-tint-percent);
+  }
+  &:active {
+    color: shade($color-primary, $btn-active-shade-percent);
+  }
+}
+
+//Alternative color styles
+.btn-primary{
+  @include btn-variant($btn-primary-color, $btn-primary-fill, $btn-primary-border);
+}
+
+.btn-success{
+  @include btn-variant($btn-success-color, $btn-success-fill, $btn-success-border);
+}
+
+.btn-warning{
+  @include btn-variant($btn-warning-color, $btn-warning-fill, $btn-warning-border);
+}
+
+.btn-danger{
+  @include btn-variant($btn-danger-color, $btn-danger-fill, $btn-danger-border);
+}
+
+.btn-info{
+  @include btn-variant($btn-info-color, $btn-info-fill, $btn-info-border);
+}
+
+//Button sizes
+.btn-large {
+  @include btn-size($btn-large-padding-vertical, $btn-large-padding-horizontal, $btn-large-font-size, $btn-border-radius);
+}
+.btn-small {
+  @include btn-size($btn-small-padding-vertical, $btn-small-padding-horizontal, $btn-small-font-size, $btn-border-radius);
+}
+.btn-mini {
+  @include btn-size($btn-mini-padding-vertical, $btn-mini-padding-horizontal, $btn-mini-font-size, $btn-border-radius);
 }

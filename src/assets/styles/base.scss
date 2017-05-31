@@ -22,19 +22,19 @@
 
   @media screen and (max-width: 1059px) {
     & .app-body {
-      padding-top: 60px
+      padding-top: $height
     }
 
   }
 
   @media screen and (max-width: 999px) {
     & .app-body {
-      padding-top: 50px;
+      padding-top: $height;
       padding-bottom: 15px;
     }
 
     &.app-home-view .app-body {
-      padding-top: 20px;
+      padding-top: $height;
       padding-bottom: 0;
     }
   }

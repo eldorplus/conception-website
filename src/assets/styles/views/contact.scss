@@ -1,0 +1,48 @@
+@charset "utf-8";
+
+@import "../common/variables";
+@import "../common/mixins";
+
+.page-contact {
+  padding-top: 55px;
+  box-sizing: border-box;
+
+  h2 {
+    font-size: 28px;
+    margin: 0;
+  }
+
+  p {
+    font-size: 14px;
+    color: #5e6d82;
+  }
+
+  a {
+    display: inline-block;
+    font-size: 14px;
+  }
+
+  .form {
+    margin: 35px auto 110px;
+
+    .container {
+      @include clearfix;
+      padding: 0;
+      margin: 0 -11px;
+      width: auto;
+    }
+  }
+}
+
+.form-contact {
+  height: 394px;
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid #eaeefb;
+  border-radius: 5px;
+  box-sizing: border-box;
+  text-align: center;
+  position: relative;
+  transition: bottom .3s;
+  bottom: 0;
+}

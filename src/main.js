@@ -15,6 +15,7 @@ import Vue from 'vue';
 import MetaHead from '@/plugins/MetaHead';
 import isMobile from '@/plugins/isMobile';
 import Warn from '@/plugins/Warn';
+import Firebase from '@/services/Firebase';
 
 Vue.use(Warn);
 Vue.use(MetaHead);
@@ -50,7 +51,23 @@ const app = new Vue({
     store,
     //progress,
     template: '<App/>',
-    components: {App}
+    components: {App},
+    watch: {
+        "$route": 'checkAuth'
+    },
+    methods: {
+        checkAuth () {
+            Firebase.auth().onAuthStateChanged((authenticated) => {
+
+                if(authenticated) {
+                    console.log('authenticated true')
+                }
+                else {
+                    console.log('authenticated false')
+                }
+            });
+        }
+    }
 });
 
 window.app = app;

@@ -1,6 +1,6 @@
-import {http} from './'
+import { Auth } from './Firebase'
 
-export const user = {
+export const User = {
     /**
      * Get the cuurent auth user
      *
@@ -16,12 +16,13 @@ export const user = {
     /**
      * Log a user in.
      *
-     * @param  {Object}   data
+     * @param {Object} data
      */
     login (data) {
+        let { email, password } = data;
         return new Promise((resolve, reject) => {
-            http.post('/api/login', data).then(({body}) => {
-                resolve(body)
+            Auth.signInWithEmailAndPassword(email, password).then((response) => {
+                resolve(response)
             }).catch(error => reject(error))
         })
     },
@@ -30,8 +31,8 @@ export const user = {
      */
     logout () {
         return new Promise((resolve, reject) => {
-            http.delete('/api/logout').then(({body}) => {
-                resolve(body)
+            Auth.signOut().then((response) => {
+                resolve(response)
             }).catch(error => reject(error))
         })
     },
@@ -39,14 +40,31 @@ export const user = {
     /**
      * Log a user in.
      *
-     * @param  {Object}   data
+     * @param {Object} data
      */
     register (data) {
+        let { email, password } = data;
         return new Promise((resolve, reject) => {
-            http.post('/api/register', data).then(({body}) => {
+            /**
+            Auth.createUser(user).then(({body}) => {
                 resolve(body)
+            }).catch(error => reject(error));
+            **/
+
+            Auth.createUserWithEmailAndPassword(email, password).then((response) => {
+                resolve(response)
             }).catch(error => reject(error))
         })
+    },
+
+    /**
+     * reset the password
+     *
+     * @param {String} email
+     * @return {!firebase.Promise.<void>|firebase.Promise<any>|*|{name, a}}
+     */
+    resetPassword (email) {
+        return Auth.sendPasswordResetEmail(email);
     },
 
     /**
@@ -57,6 +75,7 @@ export const user = {
      */
     updateProfile (user, password) {
         return new Promise((resolve, reject) => {
+            /**
             http.put('/api/me', {
                 password,
                 username: user.username,
@@ -64,6 +83,7 @@ export const user = {
             }).then(({body}) => {
                 resolve(body)
             }).catch(error => reject(error))
+            **/
         })
     },
     /**
@@ -75,9 +95,11 @@ export const user = {
      */
     store (username, email, password) {
         return new Promise((resolve, reject) => {
+            /**
             http.post('/api/user', {username, email, password}).then(({body: user}) => {
                 resolve(user)
             }).catch(error => reject(error))
+            **/
         })
     },
 
@@ -91,9 +113,11 @@ export const user = {
      */
     update (user, name, email, password) {
         return new Promise((resolve, reject) => {
+            /**
             http.put(`/api/user/${user.id}`, {name, email, password}).then(({body: user}) => {
                 resolve(user)
             }).catch(error => reject(error))
+            **/
         })
     },
     /**
@@ -103,9 +127,11 @@ export const user = {
      */
     destroy (user) {
         return new Promise((resolve, reject) => {
+            /**
             http.delete(`/api/user/${user.username}`).then(({body}) => {
                 resolve(body)
             }).catch(error => reject(error))
+            **/
         })
     }
 };

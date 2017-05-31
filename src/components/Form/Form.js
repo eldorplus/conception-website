@@ -1,4 +1,4 @@
-import { http, user } from '@/services'
+import { http, User } from '@/services'
 import Errors from './Errors'
 import { deepCopy, hasFile, toFormData } from '@/utils'
 
@@ -153,7 +153,7 @@ class Form {
          let data = this.data();
 
          return new Promise((resolve, reject) => {
-             user.login(data)
+             User.login(data)
                 .then(response => {
                     this.finishProcessing();
                     resolve(response);
@@ -167,7 +167,6 @@ class Form {
      }
 
     register () {
-
         this.startProcessing();
         let data = this.data();
 
@@ -176,7 +175,25 @@ class Form {
         }
 
         return new Promise((resolve, reject) => {
-            user.register(data)
+            User.register(data)
+                .then(response => {
+                    this.finishProcessing();
+                    resolve(response);
+                })
+                .catch(error => {
+                    this.busy = false;
+                    this.errors.set(this.extractErrors(error));
+                    reject(error);
+                })
+        })
+    }
+
+    resetPassword () {
+        this.startProcessing();
+        let data = this.data();
+
+        return new Promise((resolve, reject) => {
+            User.resetPassword(data.email)
                 .then(response => {
                     this.finishProcessing();
                     resolve(response);
@@ -196,19 +213,19 @@ class Form {
      * @return {Object}
      */
     extractErrors (response) {
-
         if (response.status === 500 || response.status === 405) {
             return { error: Form.errorMessage };
         }
-        if (!response.body) {
+        if (response.code === 'auth/user-not-found') {
             return { error: Form.errorMessage };
         }
 
-        if (response.body.message) {
-            return { error: response.body.message };
+        if (response.message) {
+            return { error: response.message };
         }
 
-        if (response.body.errors) {
+        /**
+        if (response.body.message) {
             return { ...response.body.errors };
         }
 
@@ -217,6 +234,7 @@ class Form {
         }
 
         return { ...response.body };
+        **/
     }
 
     /**

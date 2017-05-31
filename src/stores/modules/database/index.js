@@ -6,7 +6,7 @@ import mutations from './mutations'
 
 /**
  * Initial state
- * @type {{shared_image: {}}}
+ * @type {{database, lang: string, languages: *}}
  */
 const state = {
     database,

@@ -1,5 +1,5 @@
-import { jwtToken } from '@/utils'
-import { mapActions } from 'vuex'
+import { mapActions } from 'vuex';
+//import { Database } from '../services/Firebase';
 
 export default {
     data() {
@@ -9,12 +9,10 @@ export default {
     },
     methods: {
         login() {
-            this.form.login().then(({ data }) => {
-                let { token, user } = data;
-
+            this.form.login().then((user) => {
+                //let userProfile = Database('/userProfile').child(user.uid);
+                //console.log(userProfile);
                 this.setUserAuth(user);
-                jwtToken.setUserData(user);
-                jwtToken.setToken(token);
 
                 this.form.email = '';
                 this.form.password = '';

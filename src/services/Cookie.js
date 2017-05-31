@@ -1,5 +1,4 @@
 
-
 class Cookie {
     constructor() {
         /**

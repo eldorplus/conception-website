@@ -76,8 +76,9 @@
         methods: {
             submit () {
                 this.form.clear();
-                this.form.post('/api/password/email').then(({data}) => {
-                    console.log(data)
+                this.form.resetPassword().then(() => {
+                    console.log("a link was sent to email");
+                    this.$router.push({name: 'home'})
                 })
             }
         }

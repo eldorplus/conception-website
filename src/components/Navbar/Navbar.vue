@@ -7,10 +7,10 @@
             <div class="container">
                 <h1 class="navbar-brand">
                     <router-link :to="{ name: 'home' }">
-                        <img src="../../assets/images/logo.svg"
+                        <img src="../../assets/images/logo.png"
                              alt="CWS Logo"
                              class="navbar-brand-logo">
-                        <img src="../../assets/images/logo-small.svg"
+                        <img src="../../assets/images/logo-small.png"
                                 alt="CWS Logo"
                                 class="navbar-brand-logo-small">
                     </router-link>
@@ -26,6 +26,15 @@
                                     <router-link v-if="child.type !== 'outgoing'" :to="{ name: child.name }" v-text="child.label" exact></router-link>
                                 </li>
                             </ul>
+
+                            <router-link v-if="item.type === 'dropdown' && item.path && item.meta.requiresAuth" :to="{ name: item.name }" v-text="item.label" exact></router-link>
+                            <ul v-if="item.type === 'dropdown' && item.meta.requiresAuth" class="navbar-dropdown">
+                                <li v-for="child in item.children" v-if="item.meta.requiresAuth">
+                                    <a v-if="child.type === 'outgoing'" :href="child.path" v-text="child.label" target="_blank" rel="noopener noreferrer"></a>
+                                    <router-link v-if="child.type !== 'outgoing'" :to="{ name: child.name }" v-text="child.label" exact></router-link>
+                                </li>
+                            </ul>
+
                             <a v-if="item.type === 'outgoing'" :href="item.path" target="_blank" rel="noopener noreferrer" v-text="item.label"></a>
                             <router-link v-if="item.type !== 'dropdown' && item.type !== 'outgoing'" :to="item.path" v-text="item.label" exact></router-link>
                         </li>
@@ -33,33 +42,13 @@
                 </nav>
             </div>
         </header>
-        <img class="menu-icon" src="../../assets/images/menu.svg" @click="toggleSideMenu">
-        <div class="side-menu" :class="{'side-menu-open': menu}">
-            <ul>
-                <li class="side-brand"><h2 v-text="config.brand"></h2></li>
-                <li v-for="item in navigation" class="side-menu-item" :class="{'side-dropdown-container': item.type === 'dropdown'}">
-                    <span v-if="item.type === 'dropdown' && !item.path" v-text="item.label"></span>
-                    <router-link v-if="item.type === 'dropdown' && item.path && item.meta.requiresGuest" :to="{ name: item.name }" v-text="item.label" exact></router-link>
-                    <ul v-if="item.type === 'dropdown' && item.meta.requiresGuest" class="side-dropdown">
-                        <li v-for="child in item.children" v-if="item.meta.requiresGuest">
-                            <a v-if="child.type === 'outgoing'" :href="child.path" v-text="child.label" target="_blank" rel="noopener noreferrer"></a>
-                            <router-link v-if="child.type !== 'outgoing'" :to="{ name: child.name }" v-text="child.label" exact></router-link>
-                        </li>
-                    </ul>
-                    <a v-if="item.type === 'outgoing'" :href="item.path" target="_blank" rel="noopener noreferrer" v-text="item.label"></a>
-                    <router-link v-if="item.type !== 'dropdown' && item.type !== 'outgoing'" :to="item.path" v-text="item.label" exact></router-link>
-                </li>
-            </ul>
-        </div>
-        <transition name="fade">
-            <div class="side-menu-backdrop" v-if="menu"></div>
-        </transition>
     </div>
 </template>
 
 <script type="text/babel">
     import {retrieveByLanguage} from '@/utils';
     import {mapActions, mapGetters} from 'vuex';
+    import { User } from '@/services';
 
     export default {
         name: 'Navbar',
@@ -86,11 +75,20 @@
         computed: {
 
             navigation () {
-                let routes = new Array;
+                let routes = [];
                 this.$router.options.routes.map((route) => {
-                    if (route.meta.requiresGuest || route.name === 'home') {
-                        if (route.name !== 'password-reset' && route.name !== 'password-verify') {
-                            routes.push(route)
+                    if(!this.authenticated) {
+                        if (route.meta.requiresGuest || route.name === 'home') {
+                            if (route.name !== 'password-reset' && route.name !== 'password-verify') {
+                                routes.push(route)
+                            }
+                        }
+                    }
+                    else {
+                        if (route.meta.requiresAuth || route.name === 'home') {
+                            if (route.name !== 'password-reset' && route.name !== 'password-verify') {
+                                routes.push(route)
+                            }
                         }
                     }
                 });
@@ -100,20 +98,17 @@
 
             ...mapGetters({
                 config: 'getConfig',
-                menu: 'getSideMenu',
-                active: 'getLanguage'
+                active: 'getLanguage',
+                authenticated: 'authenticated'
             })
         },
 
         methods: {
-            ...mapActions(['setSideMenu']),
 
-            closeSideMenu () {
-                this.setSideMenu(false)
-            },
-
-            toggleSideMenu () {
-                this.setSideMenu(!this.menu)
+            logout () {
+                User.logout().then(() => {
+                    this.$router.push({name: 'home'})
+                })
             }
         },
 
@@ -131,23 +126,10 @@
                     this.$refs.header.style.backgroundColor = `rgba(32, 160, 255, ${ alpha })`;
                 }
             });
-
-            let menuIcon = this.$el.querySelector('.menu-icon');
-            let sideMenu = this.$el.querySelector('.side-menu');
-            document.body.addEventListener('click', e => {
-                if (this.menu && e.target !== menuIcon && !sideMenu.contains(e.target)) {
-                    this.closeSideMenu()
-                }
-            });
-            document.body.addEventListener('touchmove', e => {
-                if (this.menu) {
-                    e.preventDefault()
-                }
-            })
         }
     }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     @import '../../assets/styles/components/navbar';
 </style>

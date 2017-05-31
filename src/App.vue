@@ -6,7 +6,7 @@
         </transition>
 
         <div class="app-body">
-            <transition name="fade" mode="out-in" @before-leave="closeSideMenu" @before-enter="resetScroll" appear>
+            <transition name="fade" mode="out-in" @before-enter="resetScroll" appear>
                 <router-view :key="routeKey"></router-view>
             </transition>
         </div>
@@ -58,9 +58,6 @@
         },
 
         methods: {
-            closeSideMenu () {
-                this.$store.dispatch('sideMenu', false)
-            },
             setLanguage (lang) {
                 //this.$store.dispatch('systemLanguage', lang);
                 //setLocale(lang)

@@ -1,22 +1,19 @@
 <template lang="html">
-    <main id="content" class="content" role="main">
-        <section class="splash-container">
-            <div class="panel panel-default panel-border-color panel-border-color-primary animated bounceIn">
-                <div class="panel-heading">
-                    <header class="wrapper text-center">
-                        <strong>Accéder à votre compte</strong>
+    <main class="page-container page-login">
+        <div class="animated bounceIn">
+            <div class="form-card">
+                <div class="form-card-head">
+                    <header class="header">
+                        <img src="../../../../assets/images/login.png" alt="">
+                        <h1>Accéder à votre compte</h1>
                     </header>
-                    <span class="splash-description">Veuillez entrer vos informations utilisateur.</span>
+                    <span class="bottom">Veuillez entrer vos informations utilisateur.</span>
                 </div>
-                <div class="panel-body">
+                <div class="form-card-body">
                     <login-form/>
                 </div>
             </div>
-            <div class="line line-dashed"></div>
-            <div class="splash-footer">
-
-            </div>
-        </section>
+        </div>
     </main>
 </template>
 
@@ -30,7 +27,7 @@
 
         head: {
             title: {
-                inner: 'Login'
+                inner: 'Se connecter'
             },
             meta: [
                 // ...
@@ -38,3 +35,8 @@
         }
     }
 </script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style lang="scss" scoped>
+    @import "../../../../assets/styles/views/login";
+</style>

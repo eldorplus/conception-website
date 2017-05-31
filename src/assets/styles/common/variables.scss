@@ -4,75 +4,9 @@
  * Component:	Variables
  * Description:	Define all variables
 */
-//======== 【iconfont】 ========
-$iconfont-inlay: 'YDUI-INLAY';
-
-//======== 【Global】 ========
-$base-zindex: 1;
-$body-bg: #F5F5F5;
-$body-padding-vertical: .24rem;
-$body-padding-bottom: .5rem;
-$line-color: #D9D9D9;
-$line-high-color: #B2B2B2;
-$max-width: 750px;
-$min-width: 300px;
-$height: 80px;
-
-//======== 【General colors palette】 ========
-$white:  		          #ffffff !default;
-$black:                   #000000 !default;
-$gray-base:               #000 !default;
-$gray-darker:             lighten($gray-base, 13.5%); // #222
-$gray-dark:               lighten($gray-base, 20%);   // #333
-$gray:                    lighten($gray-base, 33.5%); // #555
-$gray-light:              lighten($gray-base, 46.7%); // #777
-$gray-lighter:            lighten($gray-base, 93.5%); // #eee
-$inverse:                 lighten($gray-light, 15%);
-$primary-color:            #4285f4 !default;
-$dark-color:               #3d3c3c !default;
-$black-color:              #000000 !default;
-$body-color:               #404040 !default;
-
-//======== 【Text】 ========
-$color-white:             $white !default;
-$color-black:             $black !default;
-$color-title:             #0C0C0C !default;
-$color-general:           #2E2E2E !default;
-$color-dropdown:          #888888 !default;
-$color-label:             #696969 !default;
-$color-descrete:          #A8A8A8 !default;
-$color-disabled:          #B6B6B6 !default;
-$color-placeholder:       #C7C7C7 !default;
-$color-border:            #CBCBCB !default;
-$color-cta-solid:         #12d758 !default;
-$color-cta-text:          darken($color-cta-solid, 5) !default;
-$color-ok-solid:          #5da2f5 !default;
-$color-ok-text:           darken($color-ok-solid, 5) !default;
-
-$color-warning-solid:     #f46374 !default;
-$color-warning-text:      darken($color-warning-solid, 5) !default;
-$color-primary: #20a0ff;
-
-$color-success: #13ce66;
-$color-warning: #f7ba2a;
-$color-danger: #ff4949;
-$color-info: #50bfff;
-
-
-$color-secondary: color($color-primary s(99%) l(0.9%));
-$color-dark-white: color($color-white blend($color-primary, 2%));
-
-$color-base-black: darken($color-primary, 50%);
-$color-light-black: color($color-base-black h(+5) s(27%) l(27%));
-$color-extra-light-black: color($color-base-black h(+2) s(19%) l(35%));
-
-$color-base-silver: color($color-base-black h(+3) s(16%) l(58%));
-$color-light-silver: color($color-base-black h(+3) s(23%) l(67%));
-$color-extra-light-silver: #bfcbd9;
-
-$color-base-gray: color($color-base-black s(28%) l(86%));
-$color-light-gray: color($color-base-black h(+10) s(33%) l(92%));
-$color-extra-light-gray: color($color-base-black h(+6) s(33%) l(95%));
+@import "variables/color-base";
+@import "variables/typography";
+@import "variables/global";
 
 //======== 【Border】 ========
 $border-width-base: 1px;
@@ -89,75 +23,7 @@ $disabled-fill-base: $color-extra-light-gray;
 $disabled-color-base: #bbb;
 $disabled-border-base: $color-base-gray;
 
-//======== 【Button】 ========
-$btn-radius: 4px;
-$btn-fontsize: 14px;
-$btn-height: 41px;
-
-$btn-default-color: #1f2d3d;
-$btn-default-fill: $color-white;
-$btn-default-border: #c4c4c4;
-
-$btn-block-radius: 3px;
-$btn-block-fontsize: .36rem;
-$btn-block-height: 1rem;
-$btn-block-margin-top: .5rem;
-$btn-primary-bg: #04BE02;
-$btn-danger-bg: #EF4F4F;
-$btn-warning-bg: #FFB400;
-$btn-disabled-bg: #CCC;
-$btn-disabled-color: #F0F0F0;
-$btn-hollow-bg: #FFF;
-$btn-hollow-color: #454545;
-$btn-hollow-border-color: #EAEAEA;
-$btn-active-shade-percent: 10%;
-
-$btn-font-size: 14px;
-$btn-border-radius: $border-radius-base;
-$btn-padding-vertical: 10px;
-$btn-padding-horizontal: 15px;
-
-$btn-large-font-size: 16px;
-$btn-large-padding-vertical: 11px;
-$btn-large-padding-horizontal: 19px;
-
-$btn-small-font-size: 12px;
-$btn-small-padding-vertical: 7px;
-$btn-small-padding-horizontal: 9px;
-
-$btn-mini-font-size: 12px;
-$btn-mini-padding-vertical: 4px;
-$btn-mini-padding-horizontal: 4px;
-
-$btn-ghost-color: #666;
-$btn-ghost-fill: transparent;
-$btn-ghost-border: none;
-
-$btn-disabled-color: $color-extra-light-silver;
-$btn-disabled-fill: $color-extra-light-gray;
-$btn-disabled-border: $disabled-border-base;
-
-$btn-primary-border: $color-primary;
-$btn-primary-color: $color-white;
-$btn-primary-fill: $color-primary;
-
-$btn-success-border: $color-success;
-$btn-success-color: $color-white;
-$btn-success-fill: $color-success;
-
-$btn-warning-border: $color-warning;
-$btn-warning-color: $color-white;
-$btn-warning-fill: $color-warning;
-
-$btn-danger-border: $color-danger;
-$btn-danger-color: $color-white;
-$btn-danger-fill: $color-danger;
-
-$btn-info-border: $color-info;
-$btn-info-color: $color-white;
-$btn-info-fill: $color-info;
-
-$btn-hover-tint-percent: 20%;
+@import "variables/button";
 
 //======== 【Cell】 ========
 $cell-title-fontsize: .3rem;
@@ -236,3 +102,4 @@ $color-transition-base: color .2s cubic-bezier(.645,.045,.355,1);
 @import "variables/screens";
 @import "variables/popover";
 @import "variables/tooltip";
+@import "variables/input";

@@ -1,0 +1,72 @@
+@charset "utf-8";
+
+@import "../common/variables";
+@import "../common/mixins";
+
+
+.page-login {
+  padding: 55px 30px 95px;
+  box-sizing: border-box;
+  .form-card {
+    margin: 35px auto 10px;
+    height: 394px;
+    width: 60%;
+    //margin: 11% auto 0;
+    background: #fff;
+    @include border-radius(5px);
+
+    border:1px solid #eaeefb;
+    box-sizing: border-box;
+    text-align: center;
+    position: relative;
+    transition: bottom .3s;
+    bottom: 0;
+
+    .form-card-head {
+      width: 45%;
+      height: 100%;
+      float: left;
+      background: #20a0ff;
+      padding: 4.57% 0;
+      //@include border-radius(5px);
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+
+      .header {
+        padding: 0 15px;
+        margin-top: 3%;
+        h1 {
+          font-size: 1.7em;
+          color: #fff;
+          text-align: center;
+        }
+        img {
+          margin: 15px auto 15px;
+          height: 87px;
+        }
+      }
+
+      .bottom {
+        margin-top: 8.5%;
+      }
+    }
+
+    .form-card-body {
+      width: 55%;
+      height: 100%;
+      float: right;
+      padding: 4%;
+      background: #fff;
+    }
+  }
+}
+
+.login-tabs {
+  clear: both;
+
+  .login-tabs-container {
+    padding: 0;
+    background-color: #fff;
+    clear: left;
+  }
+}

@@ -1,7 +1,7 @@
 import Profile  from '../components/Profile.vue';
 
 export default {
-    label: 'Profile',
+    label: 'Mon profil',
     path: '/setting/profile',
     name: 'profile',
     type: 'page',

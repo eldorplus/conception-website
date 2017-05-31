@@ -27,7 +27,7 @@
 
         head: {
             title: {
-                inner: 'Setting'
+                inner: 'Paramètres'
             },
             meta: [
                 // ...

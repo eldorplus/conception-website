@@ -1,0 +1,57 @@
+@charset "utf-8";
+
+//======== 【General colors palette】 ========
+$white:  		          #ffffff !default;
+$black:                   #000000 !default;
+$gray-base:               #000 !default;
+$gray-darker:             lighten($gray-base, 13.5%); // #222
+$gray-dark:               lighten($gray-base, 20%);   // #333
+$gray:                    lighten($gray-base, 33.5%); // #555
+$gray-light:              lighten($gray-base, 46.7%); // #777
+$gray-lighter:            lighten($gray-base, 93.5%); // #eee
+$inverse:                 lighten($gray-light, 15%);
+$primary-color:            #4285f4 !default;
+$dark-color:               #3d3c3c !default;
+$black-color:              #000000 !default;
+$body-color:               #404040 !default;
+
+//======== 【Text】 ========
+$color-white:             $white !default;
+$color-black:             $black !default;
+$color-title:             #0C0C0C !default;
+$color-general:           #2E2E2E !default;
+$color-dropdown:          #888888 !default;
+$color-label:             #696969 !default;
+$color-descrete:          #A8A8A8 !default;
+$color-disabled:          #B6B6B6 !default;
+$color-placeholder:       #C7C7C7 !default;
+$color-border:            #CBCBCB !default;
+$color-cta-solid:         #12d758 !default;
+$color-cta-text:          darken($color-cta-solid, 5) !default;
+$color-ok-solid:          #5da2f5 !default;
+$color-ok-text:           darken($color-ok-solid, 5) !default;
+
+$color-warning-solid:     #f46374 !default;
+$color-warning-text:      darken($color-warning-solid, 5) !default;
+$color-primary: #20a0ff;
+
+$color-success: #13ce66;
+$color-warning: #f7ba2a;
+$color-danger: #ff4949;
+$color-info: #50bfff;
+
+
+$color-secondary: color($color-primary s(99%) l(0.9%));
+$color-dark-white: color($color-white blend($color-primary, 2%));
+
+$color-base-black: darken($color-primary, 50%);
+$color-light-black: color($color-base-black h(+5) s(27%) l(27%));
+$color-extra-light-black: color($color-base-black h(+2) s(19%) l(35%));
+
+$color-base-silver: color($color-base-black h(+3) s(16%) l(58%));
+$color-light-silver: color($color-base-black h(+3) s(23%) l(67%));
+$color-extra-light-silver: #bfcbd9;
+
+$color-base-gray: color($color-base-black s(28%) l(86%));
+$color-light-gray: color($color-base-black h(+10) s(33%) l(92%));
+$color-extra-light-gray: color($color-base-black h(+6) s(33%) l(95%));

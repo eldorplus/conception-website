@@ -1,0 +1,69 @@
+@charset "utf-8";
+
+//======== 【Button】 ========
+$btn-radius: 4px;
+$btn-fontsize: 14px;
+$btn-height: 41px;
+
+$btn-default-color: #1f2d3d;
+$btn-default-fill: $color-white;
+$btn-default-border: #c4c4c4;
+
+$btn-block-radius: 3px;
+$btn-block-fontsize: .36rem;
+$btn-block-height: 1rem;
+$btn-block-margin-top: .5rem;
+
+$btn-danger-bg: #EF4F4F;
+$btn-disabled-color: #F0F0F0;
+$btn-hollow-bg: #FFF;
+$btn-hollow-color: #454545;
+$btn-hollow-border-color: #EAEAEA;
+$btn-active-shade-percent: 10%;
+
+$btn-font-size: 14px;
+$btn-border-radius: $border-radius-base;
+$btn-padding-vertical: 10px;
+$btn-padding-horizontal: 15px;
+
+$btn-large-font-size: 16px;
+$btn-large-padding-vertical: 11px;
+$btn-large-padding-horizontal: 19px;
+
+$btn-small-font-size: 12px;
+$btn-small-padding-vertical: 7px;
+$btn-small-padding-horizontal: 9px;
+
+$btn-mini-font-size: 12px;
+$btn-mini-padding-vertical: 4px;
+$btn-mini-padding-horizontal: 4px;
+
+$btn-ghost-color: #666;
+$btn-ghost-fill: transparent;
+$btn-ghost-border: none;
+
+$btn-disabled-color: $color-extra-light-silver;
+$btn-disabled-fill: $color-extra-light-gray;
+$btn-disabled-border: $disabled-border-base;
+
+$btn-primary-border: $color-primary;
+$btn-primary-color: $color-white;
+$btn-primary-fill: $color-primary;
+
+$btn-success-border: $color-success;
+$btn-success-color: $color-white;
+$btn-success-fill: $color-success;
+
+$btn-warning-border: $color-warning;
+$btn-warning-color: $color-white;
+$btn-warning-fill: $color-warning;
+
+$btn-danger-border: $color-danger;
+$btn-danger-color: $color-white;
+$btn-danger-fill: $color-danger;
+
+$btn-info-border: $color-info;
+$btn-info-color: $color-white;
+$btn-info-fill: $color-info;
+
+$btn-hover-tint-percent: 20%;

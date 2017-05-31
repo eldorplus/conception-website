@@ -17,9 +17,8 @@
                 <li>
                     <div class="card">
                         <img src="../../../assets/images/guide.png" alt="Guide">
-                        <h3>Guide</h3>
-                        <p>Understand the design guidelines, helping designers build product that's logically sound,
-                            reasonably structured and easy to use.</p>
+                        <h3>Développement web</h3>
+                        <p>La première étape lorsque nous créons un site internet consiste à rédiger un cahier des charges suffisamment détaillé qui définit la nature du travail à effectuer.</p>
                         <router-link
                                 active-class="active"
                                 to="/guide/design"
@@ -30,9 +29,8 @@
                 <li>
                     <div class="card">
                         <img src="../../../assets/images/component.png" alt="">
-                        <h3>Component</h3>
-                        <p>Experience interaction details by strolling through component demos. Use encapsulated code to
-                            improve developing efficiency.</p>
+                        <h3>Conception</h3>
+                        <p>Une étude préalable de votre secteur d'activité permettra de concevoir une identité graphique en accord avec votre domaine d'activité. Vous recevez plusieurs propositions et obtenez un site internet qui vous correspond.</p>
                         <router-link
                                 active-class="active"
                                 to="/component/layout"
@@ -43,9 +41,8 @@
                 <li>
                     <div class="card">
                         <img src="../../../assets/images/resource.png" alt="">
-                        <h3>Resource</h3>
-                        <p>Download relevant design resources for shaping page prototype or visual draft, increasing
-                            design efficiency.</p>
+                        <h3>Suivi client</h3>
+                        <p>Le travail terminé mène généralement à une collaboration pour les mises à jour, la maintenance ou le suivi. Votre site internet peut toujours évoluer même plusieurs mois après sa mise en ligne.</p>
                         <router-link
                                 active-class="active"
                                 to="/resource"
@@ -72,11 +69,14 @@
         mounted() {
             function typing(theater) {
                 theater
-                        .addScene('product designers', 1800, -17, 800)
-                        .addScene('UI designers', 1800, -12, 800)
-                        .addScene('UX designers', 1800, -12, 800)
+                        .addScene('professionnels & particuliers', 1800, -29, 800)
+                        .addScene('mobile, tablette & desktop', 1800, -26, 800)
+                        /**
+                        .addScene('Tablette', 1800, -12, 800)
                         .addScene('product managers', 1800, -16, 800)
-                        .addScene('FE developers', 1800, -13, 800).addScene((done) => {
+                        .addScene('FE developers', 1800, -13, 800)
+                        **/
+                        .addScene((done) => {
                     typing(theater);
                     done();
                 });
@@ -101,6 +101,6 @@
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style lang="scss">
+<style lang="scss" scoped>
     @import "../../../assets/styles/views/home";
 </style>

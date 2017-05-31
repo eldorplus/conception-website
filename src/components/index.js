@@ -1,6 +1,6 @@
 import Vue from 'vue';
 
-import Button from './Button';
+import {Button, ButtonGroup} from './Button';
 import CookieBar from './CookieBar';
 import Footer from './Footer';
 import Navbar  from './Navbar';
@@ -8,9 +8,12 @@ import { HasError, AlertError, AlertErrors, AlertSuccess } from './Form';
 import PageLoader from './PageLoader/PageLoader.vue';
 import NotFound from './NotFound';
 import Popover from './Popover';
+import Row from './Row';
+import MdInput from './Input'
 
 const components = [
     Button,
+    ButtonGroup,
     CookieBar,
     Footer,
     Navbar,
@@ -20,7 +23,9 @@ const components = [
     AlertSuccess,
     PageLoader,
     NotFound,
-    Popover
+    Popover,
+    Row,
+    MdInput
 ];
 
 const install = (Vue, opts = {}) => {

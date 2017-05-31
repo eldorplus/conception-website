@@ -11,21 +11,21 @@
             <form accept-charset="UTF-8" @submit.prevent="changeEmail" @keydown="form.errors.clear($event.target.name)" class="form-horizontal" role="form">
                 <label for="email">Entrer un email</label>
                 <div style="margin-bottom: 25px" class="input-group" :class="{ 'has-error': form.errors.has('email') }">
-                    <span class="input-group-addon"><icon name="envelope" /></span>
+                    <span class="input-group-addon"><!--<icon name="envelope" />--></span>
                     <input class="form-control"
                            id="email"
                            v-model="form.email"
                            required
                            size="30"
                            type="email"
-                           :placeholder="trans('auth.txt.email')" />
+                           placeholder="Email" />
                     <has-error :form="form" field="email"></has-error>
                 </div>
                 <div style="margin-top:10px" class="btn-group">
                     <!-- Button -->
                     <div class="col-sm-12 controls" style="margin-bottom: 25px">
                         <button id="btn-login" type="submit" class="btn login-submit-button">
-                            <icon name="user" />  Changer
+                            <!--<icon name="user" />-->  Changer
                         </button>
                     </div>
                 </div>

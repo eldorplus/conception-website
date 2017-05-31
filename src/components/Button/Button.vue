@@ -21,7 +21,7 @@
                 <i v-if="icon" class="icon" :class="'md-' + icon"></i>
             </slot>
         </span>
-        <label class="md-button-text"><slot></slot></label>
+        <label class="md-btn-text"><slot></slot></label>
     </button>
 </template>
 
@@ -101,6 +101,6 @@
     }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     @import '../../assets/styles/components/button/button';
 </style>

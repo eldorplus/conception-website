@@ -8,13 +8,13 @@
             <div class="profile-usermenu">
                 <ul class="nav">
                     <li>
-                        <router-link :to="{ name: 'admin', exact: true }"><icon name="cog" />&nbsp;Profil</router-link>
+                        <router-link :to="{ name: 'admin', exact: true }"><!--<icon name="cog" />-->&nbsp;Profil</router-link>
                     </li>
                     <li>
-                        <router-link :to="{ name: 'setting', exact: true }"><icon name="user" />&nbsp;Paramètres du compte</router-link>
+                        <router-link :to="{ name: 'setting', exact: true }"><!--<icon name="user" />-->&nbsp;Paramètres du compte</router-link>
                     </li>
                     <li>
-                        <router-link :to="{ name: 'email', exact: true }"><icon name="envelope" />&nbsp;E-mails</router-link>
+                        <router-link :to="{ name: 'email', exact: true }"><!--<icon name="envelope" />-->&nbsp;E-mails</router-link>
                     </li>
                 </ul>
                 <!-- END MENU -->
