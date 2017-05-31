@@ -21,8 +21,8 @@
                         <p>La première étape lorsque nous créons un site internet consiste à rédiger un cahier des charges suffisamment détaillé qui définit la nature du travail à effectuer.</p>
                         <router-link
                                 active-class="active"
-                                to="/guide/design"
-                                exact>Voir plus en detail
+                                :to="{name: 'contact'}"
+                                exact>Plus d’infos
                         </router-link>
                     </div>
                 </li>
@@ -33,8 +33,8 @@
                         <p>Une étude préalable de votre secteur d'activité permettra de concevoir une identité graphique en accord avec votre domaine d'activité. Vous recevez plusieurs propositions et obtenez un site internet qui vous correspond.</p>
                         <router-link
                                 active-class="active"
-                                to="/component/layout"
-                                exact>Voir plus en detail
+                                :to="{name: 'contact'}"
+                                exact>Plus d’infos
                         </router-link>
                     </div>
                 </li>
@@ -45,8 +45,8 @@
                         <p>Le travail terminé mène généralement à une collaboration pour les mises à jour, la maintenance ou le suivi. Votre site internet peut toujours évoluer même plusieurs mois après sa mise en ligne.</p>
                         <router-link
                                 active-class="active"
-                                to="/resource"
-                                exact>Voir plus en detail
+                                :to="{name: 'contact'}"
+                                exact>Plus d’infos
                         </router-link>
                     </div>
                 </li>
@@ -63,7 +63,7 @@
         name: 'Home',
 
         head: {
-            title: {inner: 'Home'}
+            title: {inner: 'Acceuil'}
         },
 
         mounted() {

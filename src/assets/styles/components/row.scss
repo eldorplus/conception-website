@@ -7,6 +7,11 @@
   position: relative;
   box-sizing: border-box;
   @include clearfix;
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
 
   .row-flex {
     display: flex;

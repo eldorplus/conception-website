@@ -18,8 +18,9 @@
                 <nav class="navbar-menu">
                     <ul>
                         <li v-for="item in navigation" class="navbar-menu-item" :class="{'navbar-dropdown-container': item.type === 'dropdown'}">
+                            <!-- :class="{'is-active': $route.path.indexOf(item.path) !== -1}" -->
                             <span v-if="item.type === 'dropdown' && !item.path" v-text="item.label"></span>
-                            <router-link v-if="item.type === 'dropdown' && item.path && item.meta.requiresGuest" :to="{ name: item.name }" v-text="item.label" exact></router-link>
+                            <router-link v-if="item.type === 'dropdown' && item.path && item.meta.requiresGuest" :to="{ name: item.name }" v-text="item.label"></router-link>
                             <ul v-if="item.type === 'dropdown' && item.meta.requiresGuest" class="navbar-dropdown">
                                 <li v-for="child in item.children" v-if="item.meta.requiresGuest">
                                     <a v-if="child.type === 'outgoing'" :href="child.path" v-text="child.label" target="_blank" rel="noopener noreferrer"></a>

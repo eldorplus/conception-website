@@ -9,7 +9,9 @@ import PageLoader from './PageLoader/PageLoader.vue';
 import NotFound from './NotFound';
 import Popover from './Popover';
 import Row from './Row';
-import MdInput from './Input'
+import MdInput from './Input';
+import Col from './Column';
+import PriceBox from './PriceBox';
 
 const components = [
     Button,
@@ -25,7 +27,9 @@ const components = [
     NotFound,
     Popover,
     Row,
-    MdInput
+    Col,
+    MdInput,
+    PriceBox
 ];
 
 const install = (Vue, opts = {}) => {

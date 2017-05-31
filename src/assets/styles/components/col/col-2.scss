@@ -1,0 +1,123 @@
+@charset "utf-8";
+
+@import "../../common/variables";
+@import "../../common/mixins";
+
+$columns-list: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24;
+
+@each $column in $columns-list {
+  .col-#{$column} {
+    float: left;
+    box-sizing: border-box;
+  }
+}
+
+.col-0 {
+  width: 0;
+}
+
+/**
+@for $i from 0 to 24 {
+  $size-colums: (1 / 24 * #{$i});
+  .col-#{$i} {
+    width: percentage($size-colums);
+  }
+
+  .col-offset-#{$i} {
+    margin-left: percentage(#{$size-colums});
+  }
+
+  .col-pull-#{$i} {
+    position: relative;
+    right: percentage(#{$size-colums});
+  }
+
+  .col-push-#{$i} {
+    position: relative;
+    left: percentage(#{$size-colums});
+  }
+}
+
+@media (max-width: 768px) {
+  @for $i from 0 to 24 {
+    $size-colums: (1 / 24 * #{$i});
+    .col-xs-#{$i} {
+      width: percentage(#{$size-colums});
+    }
+
+    .col-xs-offset-#{$i} {
+      margin-left: percentage(#{$size-colums});
+    }
+
+    .col-xs-pull-#{$i} {
+      position: relative;
+      right: percentage(#{$size-colums});
+    }
+
+    .col-xs-push-#{$i} {
+      position: relative;
+      left: percentage(#{$size-colums});
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  @for $i from 0 to 24 {
+    $size-colums: 1 / 24 * #{$i};
+    .col-sm-#{$i} {
+      width: percentage(#{$size-colums});
+    }
+    .col-sm-offset-#{$i} {
+      margin-left: percentage(#{$size-colums});
+    }
+    .col-sm-pull-#{$i} {
+      position: relative;
+      right: percentage(#{$size-colums});
+    }
+    .col-sm-push-#{$i} {
+      position: relative;
+      left: percentage(#{$size-colums});
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  @for $i from 0 to 24 {
+    $size-colums: 1 / 24 * #{$i};
+    .col-md-#{$i} {
+      width: percentage(#{$size-colums});
+    }
+    .col-md-offset-#{$i} {
+      margin-left: percentage(#{$size-colums});
+    }
+    .col-md-pull-#{$i} {
+      position: relative;
+      right: percentage(#{$size-colums});
+    }
+    .col-md-push-#{$i} {
+      position: relative;
+      left: percentage(#{$size-colums});
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  @for $i from 0 to 24 {
+    $size-colums: 1 / 24 * #{$i};
+    .col-lg-#{$i} {
+      width: percentage(#{$size-colums});
+    }
+    .col-lg-offset-#{$i} {
+      margin-left: percentage(#{$size-colums});
+    }
+    .col-lg-pull-#{$i} {
+      position: relative;
+      right: percentage(#{$size-colums});
+    }
+    .col-lg-push-#{$i} {
+      position: relative;
+      left: percentage(#{$size-colums});
+    }
+  }
+}
+**/

@@ -1,0 +1,120 @@
+@charset "utf-8";
+
+$local-element-font-path: '/static/fonts';
+
+@font-face {
+  font-family: 'elements-icons';
+  src: url('#{$local-element-font-path}/elements-icons.eot');
+  src: url('#{$local-element-font-path}/elements-icons.eot?#iefix') format('embedded-opentype'),
+  url('#{$local-element-font-path}/elements-icons.woff') format('woff'),
+  url('#{$local-element-font-path}/elements-icons.ttf') format('truetype'),
+  url('#{$local-element-font-path}/elements-icons.svg#element-icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^='icons-'], [class*=' icons-'] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'elements-icons' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  vertical-align: baseline;
+  display: inline-block;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icons-bomb:before{content:'\0041';}
+.icons-book:before{content:'\0042';}
+.icons-briefcase:before{content:'\0043';}
+.icons-bubble-chat:before{content:'\0044';}
+.icons-bubble-heart:before{content:'\0045';}
+.icons-camera-photo:before{content:'\0046';}
+.icons-camera-polaroid:before{content:'\0047';}
+.icons-camera-video:before{content:'\0048';}
+.icons-cassette-player:before{content:'\0049';}
+.icons-charlie-chaplin:before{content:'\004a';}
+.icons-chef-hat:before{content:'\004b';}
+.icons-backpack:before{content:'\004c';}
+.icons-clock:before{content:'\004d';}
+.icons-coffee-machine:before{content:'\004e';}
+.icons-cog:before{content:'\004f';}
+.icons-computer-imac:before{content:'\0050';}
+.icons-computer-network:before{content:'\0051';}
+.icons-computer-pc:before{content:'\0052';}
+.icons-computer-screen-1:before{content:'\0053';}
+.icons-computer-screen-2:before{content:'\0054';}
+.icons-contact-book:before{content:'\0055';}
+.icons-content-download:before{content:'\0056';}
+.icons-cooking-pot:before{content:'\0057';}
+.icons-crop:before{content:'\0058';}
+.icons-crown:before{content:'\0059';}
+.icons-designer-cup:before{content:'\005a';}
+.icons-diving-gear:before{content:'\0061';}
+.icons-drink-cocktail:before{content:'\0062';}
+.icons-drink-coffee:before{content:'\0063';}
+.icons-e-mail:before{content:'\0064';}
+.icons-envelope:before{content:'\0065';}
+.icons-eyedropper:before{content:'\0066';}
+.icons-fork-knife:before{content:'\0067';}
+.icons-forklift:before{content:'\0068';}
+.icons-fountain-pen-head-1:before{content:'\0069';}
+.icons-fountain-pen-head-2:before{content:'\006a';}
+.icons-gauge:before{content:'\006b';}
+.icons-globe:before{content:'\006c';}
+.icons-grid:before{content:'\006d';}
+.icons-griller:before{content:'\006e';}
+.icons-handbag:before{content:'\006f';}
+.icons-headphone:before{content:'\0070';}
+.icons-heart:before{content:'\0071';}
+.icons-home:before{content:'\0072';}
+.icons-hotdog:before{content:'\0073';}
+.icons-icecream:before{content:'\0074';}
+.icons-image:before{content:'\0075';}
+.icons-iphone:before{content:'\0076';}
+.icons-ipod:before{content:'\0077';}
+.icons-layers-image:before{content:'\0078';}
+.icons-layers:before{content:'\0079';}
+.icons-link:before{content:'\007a';}
+.icons-location-pin:before{content:'\0030';}
+.icons-location-user:before{content:'\0031';}
+.icons-lock-locked:before{content:'\0032';}
+.icons-lock-unlocked:before{content:'\0033';}
+.icons-magic-wand:before{content:'\0034';}
+.icons-magnet:before{content:'\0035';}
+.icons-microphone:before{content:'\0036';}
+.icons-monocle:before{content:'\0037';}
+.icons-mp3-player:before{content:'\0038';}
+.icons-music-note:before{content:'\0039';}
+.icons-notebook-1:before{content:'\0021';}
+.icons-notebook-2:before{content:'\0022';}
+.icons-paint-brush:before{content:'\0023';}
+.icons-paint-bucket:before{content:'\0024';}
+.icons-paint-palette:before{content:'\0025';}
+.icons-paint-roller:before{content:'\0026';}
+.icons-pen-fountain:before{content:'\0027';}
+.icons-pen-point-tip:before{content:'\0028';}
+.icons-pencil-ruler:before{content:'\0029';}
+.icons-picture-frame:before{content:'\002a';}
+.icons-quill-ink:before{content:'\002b';}
+.icons-refresh:before{content:'\002c';}
+.icons-remote-control-hand:before{content:'\002d';}
+.icons-remote-control-screen:before{content:'\002e';}
+.icons-script:before{content:'\002f';}
+.icons-server:before{content:'\005b';}
+.icons-settings:before{content:'\005c';}
+.icons-shield-cross:before{content:'\005d';}
+.icons-shopping-cart-add:before{content:'\005e';}
+.icons-shopping-cart-remove:before{content:'\005f';}
+.icons-skull:before{content:'\0060';}
+.icons-smart-device:before{content:'\007b';}
+.icons-smiley:before{content:'\007c';}
+.icons-sneakers:before{content:'\007d';}
+.icons-sofa:before{content:'\007e';}
+.icons-stamp:before{content:'\003f';}

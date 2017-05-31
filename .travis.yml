@@ -41,7 +41,7 @@ after_success:
 #  - sh build/cli/deploy-ci.sh
   - yarn run build
   - cd dist
-  - echo "conception-web.io" > CNAME
+  - echo "conception-web.ga" > CNAME
   - cp index.html 404.html
   - git add --all .
   - git commit --message "Automatically update from travis-ci"
