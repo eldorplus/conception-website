@@ -43,7 +43,7 @@
                                    type="password">
                             <has-error :form="form" field="password"></has-error>
                         </div>
-                        <div class="form-group" :class="{ 'has-error': form.errors.has('password') }">
+                        <div class="form-group" :class="{ 'has-error': form.errors.has('recaptcha_response') }">
                             <recaptcha ref="recaptcha"
                                        :sitekey="siteKey"
                                        @verify="onVerify"

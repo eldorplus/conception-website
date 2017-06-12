@@ -91,6 +91,11 @@
     padding: 0;
     margin: 0;
 
+    @media (max-width: 450px) {
+      float: right;
+      font-size: 14px;
+    }
+
     .navbar-menu-item {
       display: inline-block;
       float: left;
@@ -157,6 +162,10 @@
           height: 5px;
           background: #99d2fc;
           opacity: 1;
+        }
+
+        @media (max-width: 850px) {
+          font-size: 12px;
         }
 
       }
@@ -245,7 +254,7 @@
           margin-left: 10px;
         }
         a, span {
-          padding: 0 10px;
+          padding: 0 5px;
         }
 
         &.navbar-dropdown-container {
@@ -300,7 +309,7 @@
       margin-left: 6px;
 
       &:last-child {
-        margin-left: 10px;
+        margin-left: 0;
       }
       a {
         padding: 0 5px;
@@ -313,7 +322,7 @@
   .navbar {
     padding: 0 10px;
     .container {
-      padding: 0 12px;
+      padding: 0;
     }
     .navbar-menu-item a,
     .navbar-lang {

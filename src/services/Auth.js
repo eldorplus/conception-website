@@ -122,16 +122,12 @@ export const User = {
     },
     /**
      * Delete a user.
-     *
-     * @param  {Object}   user
      */
-    destroy (user) {
+    destroy () {
         return new Promise((resolve, reject) => {
-            /**
-            http.delete(`/api/user/${user.username}`).then(({body}) => {
-                resolve(body)
-            }).catch(error => reject(error))
-            **/
+            Auth.currentUser.delete()
+                .then(response => resolve(response))
+                .catch(error => reject(error));
         })
     }
 };

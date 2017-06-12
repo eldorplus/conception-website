@@ -12,6 +12,7 @@ import Row from './Row';
 import MdInput from './Input';
 import Col from './Column';
 import PriceBox from './PriceBox';
+import Notification from './Notification';
 
 const components = [
     Button,
@@ -52,9 +53,10 @@ const install = (Vue, opts = {}) => {
     Vue.prototype.$alert = MessageBox.alert;
     Vue.prototype.$confirm = MessageBox.confirm;
     Vue.prototype.$prompt = MessageBox.prompt;
-    Vue.prototype.$notify = Notification;
     Vue.prototype.$message = Message;
     **/
+
+    Vue.prototype.$notify = Notification;
 };
 
 install(Vue);

@@ -1,0 +1,20 @@
+@charset "utf-8";
+
+/* Notification
+-------------------------- */
+$notification-width: 330px;
+$notification-padding: 20px;
+$notification-shadow: $box-shadow-base;
+$notification-icon-size: 40px;
+$notification-font-size: $font-size-base;
+$notification-color: $border-color-hover;
+$notification-title-font-size: 16px;
+$notification-title-color: $color-base-black;
+
+$notification-close-color: $color-extra-light-silver;
+$notification-close-hover-color: $color-light-silver;
+
+$notification-success-color: $color-success;
+$notification-info-color: $color-info;
+$notification-warning-color: $color-warning;
+$notification-danger-color: $color-danger;

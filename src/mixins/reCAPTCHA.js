@@ -12,7 +12,9 @@ export default {
          * reCAPTCHA token expired
          **/
         onExpired () {
-            console.log('Expired')
+            this.form.errors.set({
+                recaptcha_response: 'Le code de validation a expiré.'
+            });
         },
 
         /**

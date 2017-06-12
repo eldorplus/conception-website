@@ -16,11 +16,20 @@ import MetaHead from '@/plugins/MetaHead';
 import isMobile from '@/plugins/isMobile';
 import Warn from '@/plugins/Warn';
 import Firebase from '@/services/Firebase';
+import { Select, Option, OptionGroup } from 'element-ui';
 
 Vue.use(Warn);
 Vue.use(MetaHead);
 Vue.use(isMobile);
 //Vue.use(PageLoader);
+
+// configure language
+import lang from 'element-ui/lib/locale/lang/fr';
+import locale from 'element-ui/lib/locale';
+locale.use(lang);
+Vue.use(Select);
+Vue.use(Option);
+Vue.use(OptionGroup);
 
 Vue.config.productionTip = false;
 Vue.config.debug = process.env.NODE_ENV !== 'production';
@@ -32,6 +41,7 @@ import store from '@/stores';
 import router from './router';
 import {jwtToken} from '@/utils';
 import {user} from '@/services';
+
 
 /**
  * Register the global

@@ -27,7 +27,7 @@
 
 
             <div class="login-tools">
-                <div class="login-submit">
+                <div class="login-submit" @click="login">
                     <MdButton size="normal" type="primary" nativeType="submit">Se connecter</MdButton>
                 </div>
             </div>

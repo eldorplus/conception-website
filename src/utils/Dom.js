@@ -284,3 +284,11 @@ export const setStyle = (element, styleName, value) => {
         }
     }
 };
+
+export const isVNode = (node) => {
+    return typeof node === 'object' && hasOwn(node, 'componentOptions');
+};
+
+export function getFirstComponentChild(children) {
+    return children && children.filter(c => c && c.tag)[0];
+};

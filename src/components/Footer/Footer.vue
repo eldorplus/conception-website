@@ -3,7 +3,7 @@
         <div class="container">
             <div class="footer-main">
                 <p class="footer-main-title">Développez par Patrick LUZOLO</p>
-                <a href="mailto:eldorplus@gmail.com" class="footer-main-link" target="_blank">Feedback</a>
+                <a href="mailto:eldorplus@gmail.com" class="footer-main-link">Feedback</a>
             </div>
             <div class="footer-social">
                 <Popover ref="weixin"
@@ -15,7 +15,7 @@
                     <img src="../../assets/images/qrcode.png" alt="">
                 </Popover>
                 <i class="icon-weixin element" v-popover:weixin></i>
-                <a href="//github.com/eldorplus" target="_blank">
+                <a href="//github.com/eldorplus" rel="noopener noreferrer" target="_blank">
                     <i class="icon-github element"></i>
                 </a>
             </div>

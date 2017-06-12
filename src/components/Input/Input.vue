@@ -19,6 +19,7 @@
                    :autocomplete="autoComplete"
                    :value="currentValue"
                    ref="input"
+                   v-mask="mask"
                    :pattern="pattern"
                    :required="required"
                    @input="handleInput"
@@ -76,6 +77,10 @@
             required: {
                 type: Boolean,
                 default: false
+            },
+            mask: {
+                type: String,
+                default: ""
             },
             type: {
                 type: String,

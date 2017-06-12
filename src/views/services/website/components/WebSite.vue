@@ -15,21 +15,21 @@
                 <div class="col-services">
                     <Row>
                         <Column :sm="4" class="animated fadeInLeft">
-                            <div class="icon"> <i class="icon-star-on icn"></i> </div>
+                            <div class="icon"> <i class="icon-picons-star icn"></i> </div>
                             <div class="text">
                                 <h5 class="upper">Simple et fonctionnel.</h5>
                                 <p>Un site web réalisé simplement doit être agréable à l'oeil, facile d'utilisation et aisément maintenable.</p>
                             </div>
                         </Column>
                         <Column :sm="4" class="animated fadeInUp">
-                            <div class="icon"> <i class="icons-fork-knife icn"></i> </div>
+                            <div class="icon"> <i class="icon-picons-heart icn"></i> </div>
                             <div class="text">
                                 <h5 class="upper">Un site à votre goût.</h5>
                                 <p>Si vous ne l'aimez pas, qui l'aimera? Le site doit refleter votre personnalité, celle de votre entreprise: c'est votre vitrine sur le web.</p>
                             </div>
                         </Column>
                         <Column :sm="4" class="animated fadeInRight">
-                            <div class="icon"> <i class="icons-ipod icn"></i> </div>
+                            <div class="icon"> <i class="icon-picons-mobile-ring icn"></i> </div>
                             <div class="text">
                                 <h5 class="upper">Web Mobile.</h5>
                                 <p>De nos jours et pour le futur, il est indispensable d'avoir un site web s'adaptant aux écrans des smartphones et des tablettes.</p>
@@ -39,7 +39,7 @@
                     <div class="divide-30"></div>
                     <Row>
                         <Column :sm="4" class="animated fadeInLeft">
-                            <div class="icon"> <i class="icons-computer-imac icn"></i> </div>
+                            <div class="icon"> <i class="icon-picons-laptop-web icn"></i> </div>
                             <div class="text">
                                 <h5 class="upper">MODERNE</h5>
                                 <p>Développé selon les standards actuels du web : HTML5, CSS3, JavaScript, Ajax... et respectant les normes SEO.</p>
@@ -47,14 +47,14 @@
                         </Column>
 
                         <Column :sm="4" class="animated fadeInUp">
-                            <div class="icon"> <i class="icons-contact-book icn"></i> </div>
+                            <div class="icon"> <i class="icon-picons-anchor icn"></i> </div>
                             <div class="text">
                                 <h5 class="upper">Référencement naturel SEO</h5>
                                 <p>La structure de votre site doit être optimisée pour le référencement naturel: il doit répondre aux critères de classification des moteurs de recherche tel Google.</p>
                             </div>
                         </Column>
                         <Column :sm="4" class="animated fadeInRight">
-                            <div class="icon"> <i class="icons-script icn"></i> </div>
+                            <div class="icon"> <i class="icon-picons-award icn"></i> </div>
                             <div class="text">
                                 <h5 class="upper">Distinction</h5>
                                 <p>Votre site doit vous permettre de donner la meilleure image de vous, il doit vous faire devancer la concurrence.</p>
@@ -94,7 +94,7 @@
                         </div>
                     </div>
                     <div class="divide-20"></div>
-                    <Row>
+                    <Row class="is-mobile">
                         <Column :sm="4" class="animated fadeInLeft">
                             <PriceBox title="Formule « basique »">
                                 <div slot="header">
@@ -107,7 +107,7 @@
                                 </div>
                                 <div slot="body">
                                     <ul class="features">
-                                        <li><span class="fontawesome-cog"></span><strong>5 pages de contact</strong></li>
+                                        <li><span class="fontawesome-cog"></span><strong>5 pages de contenu</strong></li>
                                         <li><span class="fontawesome-star"></span>Nom de domaine</li>
                                         <li><span class="fontawesome-star"></span>Design responsive</li>
                                         <li><span class="fontawesome-star"></span>Optimisation SEO</li>
@@ -130,7 +130,7 @@
                                 </div>
                                 <div slot="body">
                                     <ul class="features">
-                                        <li><span class="fontawesome-cog"></span><strong>10 pages de contact</strong></li>
+                                        <li><span class="fontawesome-cog"></span><strong>10 pages de contenu</strong></li>
                                         <li><span class="fontawesome-star"></span>Nom de domaine</li>
                                         <li><span class="fontawesome-dashboard"></span>Design responsive</li>
                                         <li><span class="fontawesome-dashboard"></span>Optimisation SEO</li>
@@ -157,7 +157,7 @@
                                 </div>
                                 <div slot="body">
                                     <ul class="features">
-                                        <li><span class="fontawesome-cog"></span><strong>25 pages de contact</strong></li>
+                                        <li><span class="fontawesome-cog"></span><strong>25 pages de contenu</strong></li>
                                         <li><span class="fontawesome-star"></span>Nom de domaine</li>
                                         <li><span class="fontawesome-dashboard"></span>Design responsive</li>
                                         <li><span class="fontawesome-cloud"></span>Optimisation SEO</li>
@@ -195,5 +195,5 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-    @import "../../../../assets/styles/views/website";
+    @import "../../../../assets/styles/views/services";
 </style>

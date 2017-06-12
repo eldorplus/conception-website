@@ -4,45 +4,89 @@
 @import "../common/mixins";
 
 .page-contact {
-  padding-top: 55px;
-  box-sizing: border-box;
+  min-height: 91px;
 
-  h2 {
-    font-size: 28px;
-    margin: 0;
+  .light-wrapper {
+    background: #FFF;
+    border-bottom: 1px solid #e3e3e3;
   }
 
-  p {
-    font-size: 14px;
-    color: #5e6d82;
+  .inner {
+    padding-top: 26px;
+    padding-bottom: 26px;
+
+    h1 {
+      font-size: 22px;
+      font-weight: normal;
+      margin: 4px 0 0 0;
+    }
   }
 
-  a {
-    display: inline-block;
-    font-size: 14px;
+  @media (max-width: 768px) {
+      padding: 0 20px;
+      padding-bottom: 40px;
   }
+}
 
-  .form {
-    margin: 35px auto 110px;
+.post-title {
+  color: #616161;
+  font-size: 22px;
+  line-height: 28px;
+  font-weight: 800;
 
-    .container {
-      @include clearfix;
-      padding: 0;
-      margin: 0 -11px;
-      width: auto;
+  margin-bottom: 10px;
+}
+
+.divide-20 {
+  width: 100%;
+  height: 20px;
+}
+
+.form-container {
+
+}
+
+.forms {
+  position: relative;
+  padding: 0;
+  width: 100%;
+
+  .container {
+    width: 100%;
+    margin: auto;
+    padding: 0;
+
+    .form-message {
+      margin-bottom: 15px;
+      resize: vertical;
     }
   }
 }
 
-.form-contact {
-  height: 394px;
-  width: 100%;
-  background: #ffffff;
-  border: 1px solid #eaeefb;
-  border-radius: 5px;
-  box-sizing: border-box;
-  text-align: center;
-  position: relative;
-  transition: bottom .3s;
-  bottom: 0;
+.sidebox {
+  &.widget {
+    h4 {
+      margin-top: 0;
+      font-size: 16px;
+      margin-bottom: 8px;
+      color: #616161;
+      font-weight: 800;
+      @media (max-width: 840px) {
+        margin-top: 20px;
+      }
+    }
+    
+    .contact-info {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      i, .icon {
+        margin-right: 7px;
+      }
+
+      .address {
+        margin-bottom: 20px;
+      }
+    }
+  }
 }
