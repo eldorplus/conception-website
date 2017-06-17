@@ -10,9 +10,10 @@ import NotFound from './NotFound';
 import Popover from './Popover';
 import Row from './Row';
 import MdInput from './Input';
-import Col from './Column';
+import Column from './Column';
 import PriceBox from './PriceBox';
 import Notification from './Notification';
+import {CollapseItem, Collapse} from './Collapse';
 
 const components = [
     Button,
@@ -28,9 +29,11 @@ const components = [
     NotFound,
     Popover,
     Row,
-    Col,
+    Column,
     MdInput,
-    PriceBox
+    PriceBox,
+    CollapseItem,
+    Collapse
 ];
 
 const install = (Vue, opts = {}) => {
