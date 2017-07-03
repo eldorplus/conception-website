@@ -2,7 +2,6 @@ import { addClass, removeClass } from './Dom';
 
 class Transition {
     beforeEnter(el) {
-        console.log(el, 'transition')
         addClass(el, 'collapse-transition');
         if (!el.dataset) el.dataset = {};
 

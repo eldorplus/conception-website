@@ -77,10 +77,37 @@
 
             navigation () {
                 let routes = [];
-                this.$router.options.routes.map((route) => {
+                routes = this.$router.options.routes.filter((route) => {
+                    if (route.meta.requiresGuest || !route.meta.requiresGuest) {
+                        if (
+                                route.name !== 'links' &&
+                                route.name !== 'login' &&
+                                route.name !== 'password-reset' &&
+                                route.name !== 'password-verify' &&
+                                route.name !== 'setting'
+                        ) {
+                            return route
+                        }
+                    }
+                }).sort((a, b) => {
+                    if (a.path < b.path)
+                        return -1;
+                    if (a.path > b.path)
+                        return 1;
+                    return 0;
+                });
+
+                /**
+                 this.$router.options.routes.map((route) => {
                     if(!this.authenticated) {
-                        if (route.meta.requiresGuest || route.name === 'home') {
-                            if (route.name !== 'password-reset' && route.name !== 'password-verify') {
+
+                        if (route.meta.requiresGuest || !route.meta.requiresGuest) {
+                            if (
+                                route.name !== 'login' &&
+                                route.name !== 'password-reset' &&
+                                route.name !== 'password-verify' &&
+                                route.name !== 'setting'
+                            ) {
                                 routes.push(route)
                             }
                         }
@@ -93,6 +120,8 @@
                         }
                     }
                 });
+                **/
+
 
                 return routes;
             },

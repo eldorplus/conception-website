@@ -112,7 +112,7 @@
     import {Database} from '@/services/Firebase';
     import reCAPTCHA from '@/mixins/reCAPTCHA';
     import Recaptcha from '@/plugins/Recaptcha';
-
+    
     export default {
         name: 'Contact',
 
@@ -191,6 +191,7 @@
                         this.form.name = '';
                         this.form.email = '';
                         this.form.message = '';
+                        this.form.telephone = '';
                         this.form.recaptcha_response = '';
                         this.$notify({
                             title: 'Success',
