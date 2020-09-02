@@ -21,7 +21,7 @@
     "firebase-admin": "^5.0.0",
     "firebase-functions": "^0.5.7",
     "google-auth-library": "^0.10.0",
-    "googleapis": "^19.0.0",
+    "googleapis": "^39.1.0",
     "jsonwebtoken": "^7.4.1",
     "local-storage": "^1.4.2",
     "theaterjs": "^3.1.0",
